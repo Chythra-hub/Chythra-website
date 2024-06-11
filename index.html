@@ -7,20 +7,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f1e9;
+            background-color: #F5F5DC; /* Beige */
             color: #333;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #8d8741;
+            background-color: #8B4513; /* SaddleBrown */
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         nav {
-            background-color: #659dbd;
+            background-color: #D2B48C; /* Tan */
             padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 60px;
+            z-index: 999;
         }
         nav a {
             color: #fff;
@@ -28,13 +36,13 @@
             text-decoration: none;
         }
         .content {
-            padding: 20px;
+            padding: 100px 20px 20px 20px;
         }
         .about-me, .blog {
             margin-bottom: 40px;
         }
         footer {
-            background-color: #8d8741;
+            background-color: #8B4513; /* SaddleBrown */
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -42,7 +50,34 @@
             width: 100%;
             bottom: 0;
         }
+        .menu-button {
+            background-color: #8B4513; /* SaddleBrown */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #D2B48C; /* Tan */
+        }
+        .menu a {
+            padding: 10px;
+            text-align: center;
+        }
+        .menu.show {
+            display: flex;
+        }
     </style>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -50,8 +85,11 @@
         <p>Experienced Teacher and IT Consultant</p>
     </header>
     <nav>
-        <a href="#about-me">About Me</a>
-        <a href="#blog">Blog</a>
+        <button class="menu-button" onclick="toggleMenu()">Menu</button>
+        <div id="menu" class="menu">
+            <a href="#about-me">About Me</a>
+            <a href="#blog">Blog</a>
+        </div>
     </nav>
     <div class="content">
         <section id="about-me" class="about-me">
